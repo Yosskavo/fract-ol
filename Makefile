@@ -1,6 +1,8 @@
-NAME = fractol
+NAME = so_long
 
-SRC = fractol.c
+SRC = ft_check.c     ft_nbr.c     ft_putadress.c    ft_putone.c  ft_strlen.c  so_long.c\
+      ft_countnbr.c  ft_printf.c  ft_putchar.c      ft_putstr.c  ft_unint.c   ft_error.c\
+      ft_putnbr_base.c ft_strcmp.c 
 
 OBJ = $(SRC:.c=.o)
 
