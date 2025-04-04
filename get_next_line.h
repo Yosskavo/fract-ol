@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 16:44:42 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/04 14:21:17 by yel-mota         ###   ########.fr       */
+/*   Created: 2024/12/12 21:34:18 by yel-mota          #+#    #+#             */
+/*   Updated: 2025/04/04 14:28:24 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include <stdio.h>
-# include <stdarg.h>
 # include <stdlib.h>
-# include <stdint.h>
 # include <unistd.h>
 # include "libft.h"
-int	ft_putnbr_base(unsigned int nbr, char *base);
-int	ft_putchar(const char c);
-int	ft_putstr(char *str);
-int	ft_unint(unsigned int n);
-int	ft_printf(const char *str, ...);
-int	ft_countnbr(unsigned int n);
-int	ft_putone(va_list one, const char str);
-int	ft_nbr(int n);
-int	ft_putaddress(void *p);
+
+char	*get_next_line(int fd);
+char	*ft_strrest(char *str);
+char	*ft_strline(char *str);
+char	*ft_strread(int fd, char *dest);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_whereline(const char *str);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 77
+# endif
 
 #endif

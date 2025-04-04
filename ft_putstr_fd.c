@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yel-mota <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 02:14:18 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/03 23:26:48 by yel-mota         ###   ########.fr       */
+/*   Created: 2024/10/27 18:28:42 by yel-mota          #+#    #+#             */
+/*   Updated: 2024/11/10 13:53:25 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
+	size_t	i;
 
+	if (s == NULL)
+		return ;
 	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	while (s[i] != '\0')
+		ft_putchar_fd(s[i++], fd);
 }
