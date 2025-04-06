@@ -6,7 +6,7 @@
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 21:34:18 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/04 14:28:24 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/05 18:17:56 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*get_next_line(int fd);
 char	*ft_strrest(char *str);
 char	*ft_strline(char *str);
 char	*ft_strread(int fd, char *dest);
-char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strjoin(char *s1, char const *s2);
 size_t	ft_whereline(const char *str);
 
 # ifndef BUFFER_SIZE

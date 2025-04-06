@@ -6,13 +6,13 @@
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 04:16:51 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/04 15:03:35 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/05 18:17:49 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2)
 {
 	char	*str;
 	size_t	i;
@@ -23,7 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (str == NULL)
-		return (NULL);
+		return (free(s1), NULL);
 	while (s1[i] != '\0')
 	{
 		str[i] = s1[i];
@@ -142,3 +142,4 @@ char	*get_next_line(int fd)
 		return (NULL);
 	return (str);
 }
+

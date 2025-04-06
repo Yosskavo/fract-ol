@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yel-mota <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 18:25:03 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/05 17:20:46 by yel-mota         ###   ########.fr       */
+/*   Created: 2024/10/22 17:39:02 by yel-mota          #+#    #+#             */
+/*   Updated: 2024/10/30 18:21:47 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putchar(char c)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	return (write(1, &c, 1));
+	size_t			i;
+	unsigned char	*p;
+
+	p = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+		p[i++] = c;
+	return ((void *)p);
 }

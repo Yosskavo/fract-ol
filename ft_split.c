@@ -6,7 +6,7 @@
 /*   By: yel-mota <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 12:14:18 by yel-mota          #+#    #+#             */
-/*   Updated: 2024/11/03 23:24:30 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/04 22:37:53 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static size_t	ft_lenstr(char const *str, char c)
 	return (i);
 }
 
-static char	**ft_freetable(char **c, size_t i)
+char	**ft_freetable(char **c, size_t i)
 {
 	while (i--)
 		free(c[i]);
