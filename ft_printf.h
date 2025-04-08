@@ -13,12 +13,12 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdint.h>
-# include <unistd.h>
 # include "libft.h"
+# include <stdarg.h>
+# include <stdint.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 int	ft_putnbr_base(unsigned int nbr, char *base);
 int	ft_putchar(const char c);
 int	ft_putstr(char *str);

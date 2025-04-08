@@ -27,4 +27,3 @@ size_t	ft_whereline(const char *str)
 	}
 	return (i + 1);
 }
-
