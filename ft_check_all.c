@@ -6,7 +6,7 @@
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:21:58 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/08 16:42:26 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/09 08:35:48 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,15 @@ int	ft_check_comp(t_data *data)
 	data->i = 1;
 	e = 0;
 	p = 0;
-	while (data->map[i] != NULL)
+	while (data->map[data->i] != NULL)
 	{
 		data->j = 1;
 		while (data->map[data->i][data->j] != '\0')
 		{
-			ft_condtwo(data->map[data->i][data->j], p, e, data);
+			if (data->map[data->i][data->j] == PLAYER 
+				|| data->map[data->i][data->j] == COLLECT 
+				|| data->map[data->i][data->j] == EXIT)
+				ft_condtwo(data->map[data->i][data->j], &p, &e, data);
 			else if (data->map[data->i][data->j] != FREESPACE 
 						&& data->map[data->i][data->j] != WALLS)
 				return (0);
@@ -97,5 +100,5 @@ int	ft_check_comp(t_data *data)
 		}
 		data->i++;
 	}
-	return (ft_cond(e, p, c))
+	return (ft_cond(e, p, data->c_count));
 }
