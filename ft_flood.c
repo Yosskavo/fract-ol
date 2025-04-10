@@ -6,7 +6,7 @@
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 16:01:06 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/08 16:22:14 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/09 16:07:39 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,11 @@ static char	**ft_tabcpy(char **map)
 	return (dest);
 }
 
-static void	ft_print(char **map)
-{
-	int	i;
-
-	i = 0;
-	while (map[i] != NULL)
-	{
-		ft_printf("%s\n", map[i]);
-		i++;
-	}
-}
-
 static void	ft_flood(char **map, int y, int x)
 {
 	if (map[y][x] == WALLS)
 		return ;
 	map[y][x] = WALLS;
-	/*ft_print(map);
-	ft_printf ("x = %d, y = %d\n", x, y);*/
 	ft_flood(map, y, x + 1);
 	ft_flood(map, y, x - 1);
 	ft_flood(map, y + 1, x);
@@ -71,7 +57,7 @@ static int	flood_is(char **map)
 		i = 0;
 		while (map[j][i] != '\0')
 		{
-			if (map[j][i] != WALLS)
+			if (map[j][i] != WALLS && map[j][i] != FREESPACE)
 				return (0);
 			i++;
 		}

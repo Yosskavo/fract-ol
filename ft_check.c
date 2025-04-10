@@ -6,7 +6,7 @@
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:22:03 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/09 08:31:54 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:17:40 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ void	ft_check_all(t_data *data)
 		ft_error_close(ft_free_map(data->map), MAP_ERROR, -1);
 }
 
-char	**ft_check_content(int fd)
+char	*ft_check_content(int fd)
 {
-	char *(tmp), *(cont), **(map);
-	int(i);
+	char	*tmp;
+	char	*cont;
+	int		i;
+
 	cont = ft_strdup("");
 	if (!cont)
 		ft_error_close(NULL, MALLOC_ERROR, fd);
@@ -50,12 +52,7 @@ char	**ft_check_content(int fd)
 			ft_error_close(tmp, MALLOC_ERROR, fd);
 	}
 	free(tmp);
-	if (ft_strnstr(cont, "\n\n", ft_strlen(cont)))
-		ft_error_close(cont, NEWLINE_ERROR, fd);
-	close(fd);
-	map = ft_split(cont, '\n');
-	free(cont);
-	return (map);
+	return (cont);
 }
 
 int	ft_check_filename(char *filename)
@@ -78,14 +75,19 @@ void	ft_check(char *filename, t_data *data)
 {
 	int		fd;
 	char	**map;
+	char	*cont;
 
 	fd = ft_check_filename(filename);
-	map = ft_check_content(fd);
+	cont = ft_check_content(fd);
+	if (ft_strnstr(cont, "\n\n", ft_strlen(cont)))
+		ft_error_close(cont, NEWLINE_ERROR, fd);
+	close(fd);
+	map = ft_split(cont, '\n');
+	free(cont);
 	if (!map)
 		ft_error_close(ft_free_map(map), MALLOC_ERROR, -1);
 	if (!*map)
 		ft_error_close(ft_free_map(map), READ_ERROR, -1);
 	data->map = map;
-	// ft_free_map(map);
 	ft_check_all(data);
 }

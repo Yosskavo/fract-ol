@@ -6,7 +6,7 @@
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:44:42 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/04 14:21:17 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:15:23 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
 int	ft_putnbr_base(unsigned int nbr, char *base);
 int	ft_putchar(const char c);
 int	ft_putstr(char *str);

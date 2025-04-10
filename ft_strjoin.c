@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 17:05:57 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/04 14:30:28 by yel-mota         ###   ########.fr       */
+/*   Created: 2024/12/09 04:16:51 by yel-mota          #+#    #+#             */
+/*   Updated: 2025/04/09 23:00:48 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-size_t	ft_whereline(const char *str)
+char	*ft_strjoin(char *s1, char const *s2)
 {
+	char	*str;
 	size_t	i;
+	size_t	j;
 
-	if (!str)
-		return (0);
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	i = 0;
-	while (str[i] != '\n')
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (free(s1), NULL);
+	while (s1[i] != '\0')
 	{
-		if (str[i] == '\0')
-			return (0);
+		str[i] = s1[i];
 		i++;
 	}
-	return (i + 1);
+	j = 0;
+	while (s2[j] != '\0')
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	str[i] = '\0';
+	free(s1);
+	return (str);
 }

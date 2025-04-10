@@ -6,7 +6,7 @@
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:22:11 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/08 16:22:12 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:15:06 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	ft_free_all(char *str, char *str2, char *mess, int fd)
 
 char	*ft_free_map(char **map)
 {
-	int(i);
+	int	i;
+
 	i = 0;
 	while (map[i] != NULL)
 	{

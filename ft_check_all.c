@@ -6,7 +6,7 @@
 /*   By: yel-mota <yel-mota@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 16:21:58 by yel-mota          #+#    #+#             */
-/*   Updated: 2025/04/09 08:35:48 by yel-mota         ###   ########.fr       */
+/*   Updated: 2025/04/09 15:42:17 by yel-mota         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_check_len(char **str)
 {
-	int	i;
-	int	len;
+	int		i;
+	size_t	len;
 
 	i = 1;
 	len = ft_strlen(str[0]);
@@ -51,14 +51,14 @@ int	ft_check_walls(char **map, int len)
 	return (1);
 }
 
-static int ft_cond(int e, int p, int c)
+static int	ft_cond(int e, int p, int c)
 {
 	if (e != 1 || p != 1 || c < 1)
 		return (0);
 	return (1);
 }
 
-static void ft_condtwo(char c, int *p, int *e, t_data *data)
+static void	ft_condtwo(int *p, int *e, t_data *data)
 {
 	if (data->map[data->i][data->j] == PLAYER)
 	{
@@ -89,12 +89,12 @@ int	ft_check_comp(t_data *data)
 		data->j = 1;
 		while (data->map[data->i][data->j] != '\0')
 		{
-			if (data->map[data->i][data->j] == PLAYER 
-				|| data->map[data->i][data->j] == COLLECT 
+			if (data->map[data->i][data->j] == PLAYER
+				|| data->map[data->i][data->j] == COLLECT
 				|| data->map[data->i][data->j] == EXIT)
-				ft_condtwo(data->map[data->i][data->j], &p, &e, data);
-			else if (data->map[data->i][data->j] != FREESPACE 
-						&& data->map[data->i][data->j] != WALLS)
+				ft_condtwo(&p, &e, data);
+			else if (data->map[data->i][data->j] != FREESPACE
+				&& data->map[data->i][data->j] != WALLS)
 				return (0);
 			data->j++;
 		}
